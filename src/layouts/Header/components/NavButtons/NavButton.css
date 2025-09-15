@@ -1,0 +1,8 @@
+.nav-button {
+  @apply w-[44px] h-[44px];
+  border: 1px solid var(--color-secondary-400);
+  svg {
+    @apply w-[24px] h-[24px];
+    color: var(--color-secondary-400);
+  }
+}
