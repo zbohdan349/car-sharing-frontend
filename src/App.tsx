@@ -1,4 +1,5 @@
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 
 import { Header } from "./layouts/Header";
 import { HomePage } from "./pages/HomePage";
