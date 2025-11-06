@@ -2,6 +2,7 @@ import { type FC } from "react";
 import { HomeCard } from "../../components/HomeCard";
 import { homePageData } from "./staticData";
 import { RouteSelect } from "../../components/RouteSelect";
+import { CarCard } from "../../components/CarCard";
 
 export const HomePage: FC = () => {
   const [first, second] = homePageData;
@@ -28,6 +29,9 @@ export const HomePage: FC = () => {
         </div>
       </div>
       <RouteSelect />
+
+      <div className="mb-[32px]" />
+      <CarCard />
     </div>
   );
 };
