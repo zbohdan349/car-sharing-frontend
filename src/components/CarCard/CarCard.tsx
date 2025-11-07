@@ -25,29 +25,39 @@ export const CarCard: FC<RentalCar> = ({
     <div
       className={clsx(
         "flex flex-col justify-between",
-        "bg-white rounded-lg p-[16px] md:p-[24px] min-w-[240px] md:min-w-[304px] min-h-[286px] md:min-h-[388px]",
-        "box-border"
+        "bg-white rounded-lg p-[16px] md:p-[24px] min-w-[240px] w-[240px] md:min-w-[304px] md:w-[304px] min-h-[286px] md:min-h-[388px] md:h-[388px]"
       )}
     >
-      <div className="flex gap-2 justify-between mb-1">
-        <span>{vehicleBrand}</span>
-        <ActionIcon
-          variant="transparent"
-          color="red"
-          aria-label="Settings"
-          onClick={handleLike}
-        >
-          <Heart
-            size="24"
-            color="#ED3F3F"
-            variant={isLiked ? "Bold" : "Outline"}
-          />
-        </ActionIcon>
+      <div>
+        <div className="flex gap-2 justify-between mb-1">
+          <span>{vehicleBrand}</span>
+          <ActionIcon
+            variant="transparent"
+            color="red"
+            aria-label="Settings"
+            onClick={handleLike}
+          >
+            <Heart
+              size="24"
+              color="#ED3F3F"
+              variant={isLiked ? "Bold" : "Outline"}
+            />
+          </ActionIcon>
+        </div>
+        <span className="text-sm text-secondary-300 ">{vehicleBodyType}</span>
       </div>
-      <span className="text-sm text-secondary-300 ">{vehicleBodyType}</span>
+
       <div className={clsx("flex flex-col")}>
-        <div className={clsx("flex flex-col justify-center items-center")}>
-          <img src={image} alt={vehicleBrand} />
+        <div
+          className={clsx(
+            "flex flex-col justify-center min-h-[120px] items-center"
+          )}
+        >
+          <img
+            src={image}
+            className="h-full w-full object-contain"
+            alt={vehicleBrand}
+          />
         </div>
         <div
           className={clsx(
@@ -85,9 +95,11 @@ export const CarCard: FC<RentalCar> = ({
           )}
         </div>
 
-        <Button miw={isMobile ? 100 : 116} h={isMobile ? 36 : 44}>
-          Rental Now
-        </Button>
+        <div className="self-end">
+          <Button miw={isMobile ? 100 : 116} h={isMobile ? 36 : 44}>
+            Rental Now
+          </Button>
+        </div>
       </div>
     </div>
   );
