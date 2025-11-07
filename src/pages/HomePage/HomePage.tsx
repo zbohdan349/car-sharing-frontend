@@ -1,8 +1,8 @@
 import { type FC } from "react";
 import { HomeCard } from "../../components/HomeCard";
-import { homePageData } from "./staticData";
+import { homePageData, popularCarsData } from "./staticData";
 import { RouteSelect } from "../../components/RouteSelect";
-import { CarCard } from "../../components/CarCard";
+import { CarCard, ResponsiveCarCard } from "../../components/CarCard";
 
 export const HomePage: FC = () => {
   const [first, second] = homePageData;
@@ -30,8 +30,23 @@ export const HomePage: FC = () => {
       </div>
       <RouteSelect />
 
-      <div className="mb-[32px]" />
-      <CarCard />
+      <div className="mt-[32px] md:mt-[36px]">
+        <div className="flex justify-between items-center h-[20px] md:h-[44px]">
+          <span className="text-[14px] md:text-[16px] text-secondary-300 font-bold">
+            Popular Cars
+          </span>
+          <span className="text-[12px] md:text-[16px] text-primary font-bold">
+            View All
+          </span>
+        </div>
+        <div className="flex mt-[20px] gap-4 justify-between overflow-x-auto min-w-[286px]">
+          {popularCarsData.map((car) => (
+            <CarCard key={car.id} {...car} />
+          ))}
+        </div>
+      </div>
+      <div className="mb-[16px]" />
+      <ResponsiveCarCard />
     </div>
   );
 };
