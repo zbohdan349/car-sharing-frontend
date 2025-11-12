@@ -1,27 +1,9 @@
 import { Button, Radio } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
-import {
-  ArrowDown2,
-  ArrowSwapHorizontal,
-  ArrowSwapVertical,
-} from "iconsax-reactjs";
+import { ArrowDown2, ArrowSwapVertical } from "iconsax-reactjs";
 import { StyledDateTimePicker, StyledRouteSelect } from "./styled";
 
 export const RouteSelect = () => {
-  const isMobile = useMediaQuery("(max-width: 1024px)");
-
   const renderSwapButton = () => {
-    if (!isMobile) {
-      return (
-        <div className="flex items-center justify-center gap-4">
-          <Button w="60px" h="60px" radius="md">
-            <>
-              <ArrowSwapHorizontal />
-            </>
-          </Button>
-        </div>
-      );
-    }
     return (
       <div className="absolute  top-1/2 -translate-y-1/2  right-1/2 translate-x-1/2 ">
         <Button w="60px" h="60px" radius="md">
@@ -47,7 +29,7 @@ export const RouteSelect = () => {
           <div className="min-h-[60px] w-px bg-gray-300 self-stretch" />
           <StyledDateTimePicker
             label="Date & Time"
-            placeholder="Select Date & Time"
+            placeholder="Select Date"
             w="100%"
             rightSection={<ArrowDown2 size="12" />}
           />
@@ -67,7 +49,7 @@ export const RouteSelect = () => {
           <div className="min-h-[60px] w-px bg-gray-300 self-stretch" />
           <StyledDateTimePicker
             label="Date & Time"
-            placeholder="Select Date & Time"
+            placeholder="Select Date"
             rightSection={<ArrowDown2 size="12" />}
           />
         </div>

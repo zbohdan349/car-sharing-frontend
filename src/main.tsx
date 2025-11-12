@@ -4,11 +4,23 @@ import "./index.css";
 import App from "./App.tsx";
 import { MantineProvider } from "@mantine/core";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { SearchPage } from "./pages/SearchPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: App,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
+      },
+    ],
   },
 ]);
 

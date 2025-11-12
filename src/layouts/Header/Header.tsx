@@ -4,14 +4,22 @@ import { type FC } from "react";
 import "./Header.css";
 import { NavButtons, StyledNavButton } from "./components/NavButtons";
 import { useMediaQuery } from "@mantine/hooks";
+import { useNavigate } from "react-router-dom";
 
 export const Header: FC = () => {
+  const navigate = useNavigate();
+
+  const handleHomeNavigation = () => {
+    navigate("/");
+  };
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
-    <header className="bg-white px-[24px] py-[16px] md:px-[64px] md:py-[40px] ">
+    <header className="bg-white px-[24px] py-[16px] md:px-[64px] md:py-[40px] border-b border-2 border-secondary-200 ">
       <div className="flex items-center justify-between gap-6">
         <div className="grid grid-cols-2 gap-4 w-full md:flex md:items-center md:gap-6 ">
-          <img src="/Logo.svg" alt="logo" className="h-[44px] w-[148px]" />
+          <div className="cursor-pointer" onClick={handleHomeNavigation}>
+            <img src="/Logo.svg" alt="logo" className="h-[44px] w-[148px]" />
+          </div>
           <div className="justify-self-end col-span-1 md:col-span-1 md:hidden">
             <StyledNavButton
               icon={<User variant="Bold" />}

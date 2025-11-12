@@ -10,10 +10,16 @@ import { CarCard, ResponsiveCarCard } from "../../components/CarCard";
 import clsx from "clsx";
 import { Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage: FC = () => {
   const [first, second] = homePageData;
+  const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const handleShowMoreCars = () => {
+    navigate("/search");
+  };
   return (
     <div className="bg-background  px-[24px] md:px-[64px]  py-[32px]">
       <div className="flex gap-[32px] mb-[32px]">
@@ -80,6 +86,7 @@ export const HomePage: FC = () => {
             size={isMobile ? "xs" : "md"}
             w={isMobile ? 120 : 156}
             h={isMobile ? 36 : 44}
+            onClick={handleShowMoreCars}
           >
             Show More Cars
           </Button>
