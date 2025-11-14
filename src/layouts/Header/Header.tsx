@@ -4,15 +4,31 @@ import { type FC } from "react";
 import "./Header.css";
 import { NavButtons, StyledNavButton } from "./components/NavButtons";
 import { useMediaQuery } from "@mantine/hooks";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useFilterStore } from "../../stores/filterStore";
 
 export const Header: FC = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const { openFilter } = useFilterStore();
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleHomeNavigation = () => {
     navigate("/");
   };
-  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const handleSettings = () => {
+    console.log(pathname);
+    switch (pathname) {
+      case "/search":
+        console.log("search");
+        openFilter();
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <header className="bg-white px-[24px] py-[16px] md:px-[64px] md:py-[40px] border-b border-2 border-secondary-200 ">
       <div className="flex items-center justify-between gap-6">
@@ -42,6 +58,7 @@ export const Header: FC = () => {
               <StyledNavButton
                 icon={<Setting5 variant="Bold" />}
                 label="Settings"
+                onClick={handleSettings}
               />
             </div>
           </div>
