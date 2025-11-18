@@ -4,8 +4,10 @@ import { Aave, GasStation, Heart, Profile2User } from "iconsax-reactjs";
 import { useState, type FC } from "react";
 import clsx from "clsx";
 import type { RentalCar } from "../../types/rentalCar";
+import { useNavigate } from "react-router-dom";
 
 export const CarCard: FC<RentalCar> = ({
+  id,
   vehicleBrand,
   vehicleBodyType,
   dailyPriceWithDiscount,
@@ -15,12 +17,18 @@ export const CarCard: FC<RentalCar> = ({
   transmission,
   passengerCapacity,
 }) => {
+  const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleLike = () => {
     setIsLiked(!isLiked);
   };
+
+  const handleRentalNow = () => {
+    navigate(`/car/${id}`);
+  };
+
   return (
     <div
       className={clsx(
@@ -96,7 +104,11 @@ export const CarCard: FC<RentalCar> = ({
         </div>
 
         <div className="self-end">
-          <Button miw={isMobile ? 100 : 116} h={isMobile ? 36 : 44}>
+          <Button
+            miw={isMobile ? 100 : 116}
+            h={isMobile ? 36 : 44}
+            onClick={handleRentalNow}
+          >
             Rental Now
           </Button>
         </div>
