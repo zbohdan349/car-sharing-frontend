@@ -95,7 +95,7 @@ export const Filter = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-[32px]">
+    <div className="flex flex-col gap-4 p-[32px] bg-white">
       {filterData.map((filter) => renderFilterBlock(filter))}
       <div className="flex flex-col gap-4 mt-[28px]">
         <span className="text-secondary-300 text-[12px] semibold">

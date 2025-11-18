@@ -6,6 +6,7 @@ import { MantineProvider } from "@mantine/core";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { SearchPage } from "./pages/SearchPage";
+import { CarPage } from "./pages/CarPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />,
+      },
+      {
+        path: "/car/:id",
+        element: <CarPage />,
       },
     ],
   },
