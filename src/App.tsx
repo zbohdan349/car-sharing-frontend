@@ -9,7 +9,9 @@ function App() {
   return (
     <div>
       <Header />
-      <Outlet />
+      <div className="bg-background">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
